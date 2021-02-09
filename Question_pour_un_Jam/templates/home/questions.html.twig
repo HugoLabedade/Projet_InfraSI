@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    {% for question in Questions %}
+    <div>
+        <p>{{ question.question }}</p>
+        <p>{{ question.reponse1 }}</p>
+        <p>{{ question.reponse2 }}</p>
+        <p>{{ question.reponse3 }}</p>
+        <p>{{ question.reponse4 }}</p>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    {% for theme in Themes %}
+    <div>
+        <a href="questions/{{ theme.nomtheme }}">{{ theme.nomtheme }}</a>
+    </div>
+    {% endfor %}
+{% endblock %}
