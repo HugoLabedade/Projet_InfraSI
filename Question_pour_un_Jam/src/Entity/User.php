@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -22,7 +24,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private $username;
+    private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -57,14 +59,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function get_Username(): ?string
+    public function getPseudo(): ?string
     {
-        return $this->username;
+        return $this->pseudo;
     }
 
-    public function setUsername(string $username): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->username = $username;
+        $this->pseudo = $pseudo;
 
         return $this;
     }

@@ -4,13 +4,18 @@
 
 {% block body %}
 
-    {% for question in Questions %}
     <div>
         <p>{{ question.question }}</p>
-        <p>{{ question.reponse1 }}</p>
-        <p>{{ question.reponse2 }}</p>
-        <p>{{ question.reponse3 }}</p>
-        <p>{{ question.reponse4 }}</p>
+
+
+        <a href="{{ id }}/reponse"><p>{{ question.reponse1 }}</p></a>
+        <a href="{{ id }}/reponse"><p>{{ question.reponse2 }}</p></a>
+        <a href="{{ id }}/reponse"><p>{{ question.reponse3 }}</p></a>
+        <a href="{{ id }}/reponse"><p>{{ question.reponse4 }}</p></a>
+
     </div>
-    {% endfor %}
+
+    {% if app.user %}
+        <a href="../../logout">Se déconnecter</a>
+    {% endif %}
 {% endblock %}

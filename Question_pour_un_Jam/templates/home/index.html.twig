@@ -6,7 +6,13 @@
 
     {% for theme in Themes %}
     <div>
-        <a href="questions/{{ theme.nomtheme }}">{{ theme.nomtheme }}</a>
+        <a href="questions/{{ theme.nomtheme }}/1">{{ theme.nomtheme }}</a>
     </div>
     {% endfor %}
+
+    {% if app.user %}
+        <a href="logout">Se déconnecter</a>
+    {% else %}
+        <a href="login">Se connecter</a>
+    {% endif %}
 {% endblock %}
